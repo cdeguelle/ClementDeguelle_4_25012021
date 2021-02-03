@@ -60,38 +60,33 @@
       <div class="content">
         <span class="close" id="close"></span>
         <div class="modal-body">
-          <div class="success-message" id="success-message">
+          <div id="success-message">
             <span>Merci ! Votre réservation a été reçue.</span>
             <input id="success-close-btn" class="btn-submit button" type="button" value="Fermer" />
           </div>
-          <form name="reserve" action="index.html" method="POST" novalidate>
+          <form id="form" name="reserve" action="index.html" method="POST" novalidate>
             <div class="formData">
               <label for="first">Prénom</label><br>
               <input class="text-control" type="text" id="first" name="first" /><br>
-              <p id="first-invalid"></p>
             </div>
             <div class="formData">
               <label for="last">Nom</label><br>
               <input class="text-control" type="text" id="last" name="last" /><br>
-              <p id="last-invalid"></p>
             </div>
             <div class="formData">
               <label for="email">E-mail</label><br>
               <input class="text-control" type="email" id="email" name="email" /><br>
-              <p id="email-invalid"></p>
             </div>
             <div class="formData">
               <label for="birthdate">Date de naissance</label><br>
               <input class="text-control" type="date" id="birthdate" name="birthdate" /><br>
-              <p id="birthdate-invalid"></p>
             </div>
             <div class="formData">
               <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
               <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99" />
-              <p id="quantity-invalid"></p>
             </div>
             <p class="text-label">Quelles villes ?</p>
-            <div class="formData">
+            <div id="city" class="formData">
               <input class="checkbox-input" type="radio" id="location1" name="location" value="New York" checked />
               <label class="checkbox-label" for="location1">
                 <span class="checkbox-icon"></span>
@@ -122,7 +117,6 @@
                 <span class="checkbox-icon"></span>
                 Portland
               </label>
-              <p id="city-invalid"></p>
             </div>
 
             <div class="formData">

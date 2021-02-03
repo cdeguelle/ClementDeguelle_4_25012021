@@ -139,6 +139,10 @@ main {
 
 /* Modal form */
 
+#success-message {
+  display: block;
+}
+
 .button {
   background: #fe142f;
   margin-top: 0.5em;

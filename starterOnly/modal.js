@@ -11,10 +11,10 @@ function editNav() {
 const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
-const closeModalBtn = document.querySelectorAll("#close");
-const form = document.querySelectorAll("#form");
-const successMessage = document.querySelectorAll("#success-message");
-const successCloseBtn = document.querySelectorAll("#success-close-btn");
+const closeModalBtn = document.getElementById("close");
+const form = document.getElementById("form");
+const successMessage = document.getElementById("success-message");
+const successCloseBtn = document.getElementById("success-close-btn");
 
 // form elements 
 const firstName = document.getElementById("first");
@@ -25,105 +25,84 @@ const quantity = document.getElementById("quantity");
 const city = document.querySelector("input[type=radio]");
 const conditions = document.getElementById("checkbox1");
 
+// form elements error messages
+const firstNameError = document.querySelector("#first[data-error]::after");
+const lastNameError = document.querySelector("#last[data-error]::after");
+const eMailError = document.querySelector("#email[data-error]::after");
+const birthDateError = document.querySelector("#birthdate[data-error]::after");
+const quantityError = document.querySelector("#quantity[data-error]::after");
+const cityError = document.querySelector("#city[data-error]::after");
+const conditionsError = document.querySelector("#checkbox1[data-error]::after");
+
 // Regex formats
 const birthdateFormat = /^(19|20)\d{2}[-](0?[1-9]|1[012])[-](0[1-9]|[12]\d|3[01])$/;
 const mailFormat = /^([a-zA-Z0-9_\-\.]+)@([a-zA-Z0-9_\-\.]+)\.([a-zA-Z]{2,5})$/;
 const positiveIntegerFormat = /^\+?(0|[1-9]\d*)$/;
 
-// form invalid messages
-const firstNameMessage = document.getElementById("first-invalid");
-const lastNameMessage = document.getElementById("last-invalid");
-const eMailMessage = document.getElementById("email-invalid");
-const birthDateMessage = document.getElementById("birthdate-invalid");
-const quantityMessage = document.getElementById("quantity-invalid");
-const cityMessage = document.getElementById("city-invalid");
-const conditionsMessage = document.getElementById("conditions-invalid");
-
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
 // close modal event
-closeModalBtn.forEach(elt => elt.addEventListener("click", closeModal));
-successCloseBtn.forEach(elt => elt.addEventListener("click", closeModal));
+closeModalBtn.addEventListener("click", closeModal);
+successCloseBtn.addEventListener("click", closeModal);
 
 // validate form event
-form.forEach(elt => elt.addEventListener("submit", validate));
+form.addEventListener("submit", validate);
 
 // launch modal form
 function launchModal() {
   modalbg.style.display = "block";
-  form.style.display = "block";
+  successMessage.style.display = "none";
 }
 
 // close modal form
 function closeModal() {
-  modalbg.style.display = "none";
-  successMessage.style.display = "none";
+  if (isFormValid = true) {
+    modalbg.style.display = "none";
+    successMessage.style.display = "none";
+  }
 }
 
 // success message
 function displaySuccessMessage() {
-  let currentHeight = form.offsetHeight;
 
   form.style.display = "none";
-  successMessage.style.display = "flex";
-  successMessage.style.height = currentHeight + "px";
+  successMessage.style.display = "block";
 }
 
 // validate form functions
 function isFirstValid() {
   let isValid = isLongEnough(firstName.value.length, 2);
-  if (isValid = false) {
-    firstNameMessage.innerHTML = "Veuillez entrer 2 caractères ou plus pour le champ du prénom";
-  }
   return isValid;
 }
 
 function isLastValid() {
   let isValid = isLongEnough(lastName.value.length, 2);
-  if (isValid = false) {
-    lastNameMessage.innerHTML = "Veuillez entrer 2 caractères ou plus pour le champ du nom";
-  }
   return isValid;
 }
 
 function isEmailValid() {
   let isValid = isStringMatchRegexFormat(eMail.value, mailFormat);
-  if (isValid = false) {
-    eMailMessage.innerHTML = "Veuillez entrer un format d'email valide";
-  }
   return isValid;
 }
 
 function isBirthdateValid() {
   let isValid = isStringMatchRegexFormat(birthDate.value, birthdateFormat);
-  if (isValid = false) {
-    birthDateMessage.innerHTML = "Veuillez saisir une date de naissance valide";
-  }
   return isValid;
 }
 
 function isQuantityValid() {
   let isValid = isStringMatchRegexFormat(quantity.value, positiveIntegerFormat);
-  if (isValid = false) {
-    quantityMessage.innerHTML = "Veuillez entrer un nombre";
-  }
   return isValid;
 }
 
 function isCityValid() {
   let isValid = isRadioChecked();
-  if (isValid = false) {
-    cityMessage.innerHTML = "Vous devez choisir une option";
-  }
   return isValid;
 }
 
 function isConditionsValid() {
   let isValid = isCheckboxChecked("checkbox1");
-  if (isValid = false) {
-    conditionsMessage.innerHTML = "Vous devez vérifier que vous acceptez les termes et conditions";
-  }
   return isValid;
 }
 
