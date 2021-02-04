@@ -34,6 +34,7 @@ img {
   overflow: hidden;
   margin: 3.5%;
 }
+
 .header-logo {
   float: left;
 }
@@ -74,6 +75,9 @@ img {
     float: right;
     display: block;
   }
+  .topnav {
+    margin: 3.5% 20px;
+  }
 }
 
 @media screen and (max-width: 768px) {
@@ -102,6 +106,9 @@ img {
   .topnav a:hover {
     color: #fff;
   }
+  .topnav {
+    margin: 3.5% 20px;
+  }
 } 
 
 main {
@@ -109,13 +116,9 @@ main {
   font-weight: bolder;
   color: black;
   padding-top: 0.5vw;
-  padding-left: 2vw;
-  padding-right: 2vw;
   margin: 1px 20px 15px;
   border-radius: 2rem;
   text-align: justify;
-
-
 }
 
 .modal-btn {
@@ -541,6 +544,15 @@ footer {
   .copyrights {
     margin-top: 50px;
     text-align: center;
+  }
+}
+
+@media screen and (min-width: 768px) {
+  .hero-headline {
+    font-size: 4.5rem;
+  }
+  .hero-text {
+    font-size: 1.5rem;
   }
 }
 
