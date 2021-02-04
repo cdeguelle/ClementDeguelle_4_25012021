@@ -99,6 +99,9 @@ img {
     display: block;
     color: #ff0000;
   }
+  .topnav a:hover {
+    color: #fff;
+  }
 } 
 
 main {
