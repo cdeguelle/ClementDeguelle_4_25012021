@@ -65,28 +65,28 @@
             <input id="success-close-btn" class="btn-submit button" type="button" value="Fermer" />
           </div>
           <form id="form" name="reserve" action="index.html" method="POST" novalidate>
-            <div class="formData">
+            <div id="data-first" class="formData" data-error="Veuillez entrer un prénom comportant 2 caractères ou plus" data-error-visible="false">
               <label for="first">Prénom</label><br>
               <input class="text-control" type="text" id="first" name="first" /><br>
             </div>
-            <div class="formData">
+            <div id="data-last" class="formData" data-error="Veuillez entrer un nom comportant 2 caractères ou plus" data-error-visible="false">
               <label for="last">Nom</label><br>
               <input class="text-control" type="text" id="last" name="last" /><br>
             </div>
-            <div class="formData">
+            <div id="data-email" class="formData" data-error="Veuillez entrer une adresse email valide" data-error-visible="false">
               <label for="email">E-mail</label><br>
               <input class="text-control" type="email" id="email" name="email" /><br>
             </div>
-            <div class="formData">
+            <div id="data-birthdate" class="formData" data-error="Veuillez entrer une date de naissance respectant le format JJ/MM/AAAA" data-error-visible="false">
               <label for="birthdate">Date de naissance</label><br>
               <input class="text-control" type="date" id="birthdate" name="birthdate" /><br>
             </div>
-            <div class="formData">
+            <div id="data-quantity" class="formData" data-error="Veuillez entrer un nombre compris entre 0 et 99" data-error-visible="false">
               <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
               <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99" />
             </div>
             <p class="text-label">Quelles villes ?</p>
-            <div id="city" class="formData">
+            <div id="data-city" class="formData" data-error="Veuillez choisir une ville" data-error-visible="false">
               <input class="checkbox-input" type="radio" id="location1" name="location" value="New York" checked />
               <label class="checkbox-label" for="location1">
                 <span class="checkbox-icon"></span>
@@ -119,13 +119,12 @@
               </label>
             </div>
 
-            <div class="formData">
+            <div id="data-conditions" class="formData" data-error="Veuillez accepter les conditions d'utilisation" data-error-visible="false">
               <input class="checkbox-input" type="checkbox" id="checkbox1" checked />
               <label class="checkbox2-label" for="checkbox1">
                 <span class="checkbox-icon"></span>
                 J'ai lu et accepté les conditions d'utilisation.
               </label>
-              <p id="conditions-invalid"></p>
               <br>
               <input class="checkbox-input" type="checkbox" id="checkbox2" />
               <label class="checkbox2-label" for="checkbox2">

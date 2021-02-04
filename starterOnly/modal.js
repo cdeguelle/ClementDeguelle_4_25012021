@@ -26,13 +26,13 @@ const city = document.querySelector("input[type=radio]");
 const conditions = document.getElementById("checkbox1");
 
 // form elements error messages
-const firstNameError = document.querySelector("#first[data-error]::after");
-const lastNameError = document.querySelector("#last[data-error]::after");
-const eMailError = document.querySelector("#email[data-error]::after");
-const birthDateError = document.querySelector("#birthdate[data-error]::after");
-const quantityError = document.querySelector("#quantity[data-error]::after");
-const cityError = document.querySelector("#city[data-error]::after");
-const conditionsError = document.querySelector("#checkbox1[data-error]::after");
+const firstNameError = document.getElementById("data-first");
+const lastNameError = document.getElementById("data-last");
+const eMailError = document.getElementById("data-email");
+const birthDateError = document.getElementById("data-birthdate");
+const quantityError = document.getElementById("data-quantity");
+const cityError = document.getElementById("data-city");
+const conditionsError = document.getElementById("data-conditions");
 
 // Regex formats
 const birthdateFormat = /^(19|20)\d{2}[-](0?[1-9]|1[012])[-](0[1-9]|[12]\d|3[01])$/;
@@ -44,7 +44,7 @@ modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 
 // close modal event
 closeModalBtn.addEventListener("click", closeModal);
-successCloseBtn.addEventListener("click", closeModal);
+successCloseBtn.addEventListener("click", closeModalSuccess);
 
 // validate form event
 form.addEventListener("submit", validate);
@@ -57,10 +57,12 @@ function launchModal() {
 
 // close modal form
 function closeModal() {
-  if (isFormValid = true) {
-    modalbg.style.display = "none";
-    successMessage.style.display = "none";
-  }
+  modalbg.style.display = "none";
+}
+
+function closeModalSuccess() {
+  modalbg.style.display = "none";
+  successMessage.style.display = "none";
 }
 
 // success message
@@ -73,36 +75,71 @@ function displaySuccessMessage() {
 // validate form functions
 function isFirstValid() {
   let isValid = isLongEnough(firstName.value.length, 2);
+  if (isValid) {
+    firstNameError.setAttribute("data-error-visible", "false");
+  } else {
+    firstNameError.setAttribute("data-error-visible", "true");
+  }
   return isValid;
 }
 
 function isLastValid() {
   let isValid = isLongEnough(lastName.value.length, 2);
+  if (isValid) {
+    lastNameError.setAttribute("data-error-visible", "false");
+  } else {
+    lastNameError.setAttribute("data-error-visible", "true");
+  }
   return isValid;
 }
 
 function isEmailValid() {
   let isValid = isStringMatchRegexFormat(eMail.value, mailFormat);
+  if (isValid) {
+    eMailError.setAttribute("data-error-visible", "false");
+  } else {
+    eMailError.setAttribute("data-error-visible", "true");
+  }
   return isValid;
 }
 
 function isBirthdateValid() {
   let isValid = isStringMatchRegexFormat(birthDate.value, birthdateFormat);
+  if (isValid) {
+    birthDateError.setAttribute("data-error-visible", "false");
+  } else {
+    birthDateError.setAttribute("data-error-visible", "true");
+  }
   return isValid;
 }
 
 function isQuantityValid() {
   let isValid = isStringMatchRegexFormat(quantity.value, positiveIntegerFormat);
+  if (isValid) {
+    quantityError.setAttribute("data-error-visible", "false");
+  } else {
+    quantityError.setAttribute("data-error-visible", "true");
+  }
   return isValid;
 }
 
 function isCityValid() {
   let isValid = isRadioChecked();
+  if (isValid) {
+    cityError.setAttribute("data-error-visible", "false");
+  } else {
+    cityError.setAttribute("data-error-visible", "true");
+  }
   return isValid;
 }
 
 function isConditionsValid() {
   let isValid = isCheckboxChecked("checkbox1");
+  if (isValid) {
+    conditionsError.setAttribute("data-error-visible", "false");
+  } else {
+    conditionsError.setAttribute("data-error-visible", "true");
+  }
   return isValid;
 }
 
@@ -140,7 +177,6 @@ function isCheckboxChecked(id) {
 function isLongEnough(currentLength, minimumLength) {
   return currentLength >= minimumLength;
 }
-
 
 
 
