@@ -15,6 +15,7 @@ const closeModalBtn = document.getElementById("close");
 const form = document.getElementById("form");
 const successMessage = document.getElementById("success-message");
 const successCloseBtn = document.getElementById("success-close-btn");
+const body = document.querySelector("body");
 
 // form elements 
 const firstName = document.getElementById("first");
@@ -53,16 +54,19 @@ form.addEventListener("submit", validate);
 function launchModal() {
   modalbg.style.display = "block";
   successMessage.style.display = "none";
+  body.style.position = "static";
 }
 
 // close modal form
 function closeModal() {
   modalbg.style.display = "none";
+  body.style.position = "initial";
 }
 
 function closeModalSuccess() {
   modalbg.style.display = "none";
   successMessage.style.display = "none";
+  body.style.position = "initial";
 }
 
 // success message
