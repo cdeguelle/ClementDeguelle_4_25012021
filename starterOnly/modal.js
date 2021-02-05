@@ -54,7 +54,12 @@ form.addEventListener("submit", validate);
 function launchModal() {
   modalbg.style.display = "block";
   successMessage.style.display = "none";
-  body.style.position = "static";
+  if (window.matchMedia("(min-width: 540px)").matches) {
+    body.style.position = "static";
+    body.style.overflow = "hidden";
+  } else {
+    body.style.position = "fixed";
+  }
 }
 
 // close modal form
@@ -64,6 +69,7 @@ function closeModal() {
 }
 
 function closeModalSuccess() {
+  form.style.display = "block";
   modalbg.style.display = "none";
   successMessage.style.display = "none";
   body.style.position = "initial";
@@ -71,7 +77,6 @@ function closeModalSuccess() {
 
 // success message
 function displaySuccessMessage() {
-
   form.style.display = "none";
   successMessage.style.display = "block";
 }
@@ -163,6 +168,8 @@ function validate(e) {
   if (isFormValid) {
   displaySuccessMessage();
   }
+
+  console.log("nom : " + firstV, "prénom : " + lastV, "email : " + emailV, "birthdate : " + birthdateV, "quantity : " + quantityV, "city : " + cityV, "conditions : " + conditionsV);
 }
 
 // utils
