@@ -210,6 +210,12 @@ main {
     margin-top: 80px;
     margin-bottom: 0;
   }
+  #success-message {
+    height: 520px;
+  }
+  #success-message span {
+    padding: 200px 20px;
+  }
 }
 
 .modal-body {

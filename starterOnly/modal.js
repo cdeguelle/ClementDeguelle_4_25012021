@@ -66,6 +66,7 @@ function launchModal() {
 function closeModal() {
   modalbg.style.display = "none";
   body.style.position = "initial";
+  form.style.display = "block";
 }
 
 function closeModalSuccess() {
