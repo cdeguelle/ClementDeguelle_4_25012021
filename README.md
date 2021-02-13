@@ -14,8 +14,8 @@ Si vous souhaitez contribuer, lisez le fichier [CONTRIBUTING.md](https://example
 
 ## Versions
 
-**Dernière version stable :** V 1.2
-**Dernière version :** V 1.2
+**Dernière version stable :** V 1.3
+**Dernière version :** V 1.3
 Liste des versions : [Cliquer pour afficher](https://github.com/your/project-name/tags)
 
 ## Auteurs
